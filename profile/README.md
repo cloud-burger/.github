@@ -1,12 +1,103 @@
-## Hi there 👋
+# 🍔 Cloud Burger - Self Service
 
-<!--
+## 📊 Visão Geral
+O projeto **Cloud Burger** é uma solução de *Self Service* desenvolvida para otimizar a experiência do cliente em restaurantes e lanchonetes. Este ecossistema é composto por uma aplicação central e uma infraestrutura de suporte altamente escalável, utilizando Kubernetes, banco de dados gerenciado, e autenticação robusta.
 
-**Here are some ideas to get you started:**
+### 📄 Repositórios Principais:
 
-🙋‍♀️ A short introduction - what is your organization all about?
-🌈 Contribution guidelines - how can the community get involved?
-👩‍💻 Useful resources - where can the community find your docs? Is there anything else the community should know?
-🍿 Fun facts - what does your team eat for breakfast?
-🧙 Remember, you can do mighty things with the power of [Markdown](https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
--->
+1. **Infraestrutura**:
+   - [🔑 Self Service Auth Infra](https://github.com/cloud-burger/self-service-auth-infra)
+   - [⚛️ Self Service Kubernetes](https://github.com/cloud-burger/self-service-k8s)
+   - [📁 Self Service Database](https://github.com/cloud-burger/self-service-database)
+   - [🔒 Self Service Auth](https://github.com/cloud-burger/self-service-auth)
+
+2. **📚 Aplicação**:
+   - [🍔 Self Service](https://github.com/cloud-burger/self-service)
+
+---
+
+## 📋 Detalhes
+
+### 1. [🔑 Self Service Auth Infra](https://github.com/cloud-burger/self-service-auth-infra)
+Este repositório contém a infraestrutura necessária para a autenticação, garantindo segurança e escalabilidade. Cria uma infraestrutura na AWS utilizando Terraform como ferramenta de Infraestructure as Code (IaC) para provisionar um Lambda Authorizer e um API Gateway.
+
+**Principais Componentes:**
+- 🔧 Provisionamento da infa necessária.
+- 🛡️ Configuração do cognito.
+
+### 2. [⚛️ Self Service Kubernetes](https://github.com/cloud-burger/self-service-k8s)
+Infraestrutura baseada em Kubernetes para orquestração e deploy de todos os serviços. Este repositório fornece *manifests* e *Helm charts* para provisionamento de workloads.
+
+**Principais Componentes:**
+- 🌐 Deployment automatizado.
+- 🛣️ Balanceamento de carga.
+- 🌆 Escalabilidade automática.
+
+### 3. [📁 Self Service Database](https://github.com/cloud-burger/self-service-database)
+Provisionamento e Configurações para o banco de dados da aplicação.
+
+**Principais Componentes:**
+- 🔧 Provisionamento de um RDS PostgreSQL público
+
+### 4. [🔒 Self Service Auth](https://github.com/cloud-burger/self-service-auth)
+Responsável pelo sistema de autenticação e autorização da aplicação, implementando fluxos seguros e fáceis de integrar.
+
+**Principais Componentes:**
+- 🔑 Implementação de autenticação via tokens JWT.
+- 📢 Fluxos de login social.
+
+### 5. [🍔 Self Service](https://github.com/cloud-burger/self-service)
+A aplicação principal do projeto Self Service. Este repositório centraliza a experiência do usuário, com endpoints no padrão RESTFull e integrações aos módulos de infraestrutura.
+
+**Principais Componentes:**
+- 📲  API nos padrões RESTFull.
+- 📲  Documentação OpenApi com Swagger.
+- 📡 Integrações com APIs de autenticação e banco de dados.
+- 💼 Lógica de negócios e gestão de pedidos.
+
+---
+
+## 🛠️ Configuração e Uso
+Para configurar o ecossistema completo, siga os passos abaixo:
+
+### 1. 📓 Clone os Repositórios
+```bash
+# Clonar todos os repositórios
+git clone https://github.com/cloud-burger/self-service-auth-infra
+git clone https://github.com/cloud-burger/self-service-k8s
+git clone https://github.com/cloud-burger/self-service-database
+git clone https://github.com/cloud-burger/self-service-auth
+git clone https://github.com/cloud-burger/self-service
+```
+
+### 2. 💡 Configure o Ambiente
+- Certifique-se de ter instalado:
+  - 🛠️ Docker e Kubernetes.
+  - 🌱 Helm para gestão de *charts*.
+  - 🗒️ Ferramentas de migração de banco de dados (como Flyway ou Liquibase).
+
+- Configure as variáveis de ambiente conforme os arquivos `.env` de cada repositório.
+
+### 3. 🔄 Inicialize os Serviços
+Siga os passos descritos em cada repositório para inicializar os serviços.
+
+Exemplo para aplicação principal:
+```bash
+cd self-service
+npm install
+npm start
+```
+
+---
+
+## 📚 Contribuição
+Contribuições são bem-vindas! Siga as diretrizes abaixo:
+
+1. 🌐 **Fork o Repositório**.
+2. 🔧 Crie uma *branch* para sua feature ou correção.
+3. 📥 Envie um *Pull Request* com a descrição detalhada das alterações.
+
+---
+
+## 📃 Licença
+Este projeto está licenciado sob a [Licença MIT](https://opensource.org/licenses/MIT).
