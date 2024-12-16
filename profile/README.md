@@ -1,7 +1,7 @@
-# 🍔 Cloud Burger - Self Service Ecosystem
+# 🍔 Cloud Burger - Self Service
 
 ## 📊 Visão Geral
-O projeto **Cloud Burger** é uma solução completa de *Self Service* desenvolvida para otimizar a experiência do cliente em restaurantes e lanchonetes. Este ecossistema é composto por uma aplicação central e uma infraestrutura de suporte altamente escalável, utilizando Kubernetes, banco de dados gerenciado, e autenticação robusta.
+O projeto **Cloud Burger** é uma solução de *Self Service* desenvolvida para otimizar a experiência do cliente em restaurantes e lanchonetes. Este ecossistema é composto por uma aplicação central e uma infraestrutura de suporte altamente escalável, utilizando Kubernetes, banco de dados gerenciado, e autenticação robusta.
 
 ### 📄 Repositórios Principais:
 
@@ -16,14 +16,14 @@ O projeto **Cloud Burger** é uma solução completa de *Self Service* desenvolv
 
 ---
 
-## 📋 Repositórios em Detalhes
+## 📋 Detalhes
 
 ### 1. [🔑 Self Service Auth Infra](https://github.com/cloud-burger/self-service-auth-infra)
-Este repositório contém a infraestrutura necessária para a autenticação, garantindo segurança e escalabilidade. Utiliza integrações como OAuth2, OpenID Connect e provisionamento automático de serviços relacionados.
+Este repositório contém a infraestrutura necessária para a autenticação, garantindo segurança e escalabilidade. Cria uma infraestrutura na AWS utilizando Terraform como ferramenta de Infraestructure as Code (IaC) para provisionar um Lambda Authorizer e um API Gateway.
 
 **Principais Componentes:**
-- 🔧 Configurações de provedores de identidade.
-- 🛡️ Suporte para multi-tenant.
+- 🔧 Provisionamento da infa necessária.
+- 🛡️ Configuração do cognito.
 
 ### 2. [⚛️ Self Service Kubernetes](https://github.com/cloud-burger/self-service-k8s)
 Infraestrutura baseada em Kubernetes para orquestração e deploy de todos os serviços. Este repositório fornece *manifests* e *Helm charts* para provisionamento de workloads.
@@ -34,12 +34,10 @@ Infraestrutura baseada em Kubernetes para orquestração e deploy de todos os se
 - 🌆 Escalabilidade automática.
 
 ### 3. [📁 Self Service Database](https://github.com/cloud-burger/self-service-database)
-Configurações e scripts para o banco de dados da aplicação. Inclui suporte para migrações e backups automatizados.
+Provisionamento e Configurações para o banco de dados da aplicação.
 
 **Principais Componentes:**
-- 🔧 Scripts de inicialização.
-- 🔐 Rotinas de backup.
-- 📊 Migrações com ferramentas como Flyway.
+- 🔧 Provisionamento de um RDS PostgreSQL público
 
 ### 4. [🔒 Self Service Auth](https://github.com/cloud-burger/self-service-auth)
 Responsável pelo sistema de autenticação e autorização da aplicação, implementando fluxos seguros e fáceis de integrar.
@@ -49,10 +47,11 @@ Responsável pelo sistema de autenticação e autorização da aplicação, impl
 - 📢 Fluxos de login social.
 
 ### 5. [🍔 Self Service](https://github.com/cloud-burger/self-service)
-A aplicação principal do ecossistema Self Service. Este repositório centraliza a experiência do usuário, com interfaces responsivas e integrações aos módulos de infraestrutura.
+A aplicação principal do projeto Self Service. Este repositório centraliza a experiência do usuário, com endpoints no padrão RESTFull e integrações aos módulos de infraestrutura.
 
 **Principais Componentes:**
-- 📲 UI responsiva.
+- 📲  API nos padrões RESTFull.
+- 📲  Documentação OpenApi com Swagger.
 - 📡 Integrações com APIs de autenticação e banco de dados.
 - 💼 Lógica de negócios e gestão de pedidos.
 
