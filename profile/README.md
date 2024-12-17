@@ -3,6 +3,13 @@
 ## 📊 Visão Geral
 O projeto **Cloud Burger** é uma solução de *Self Service* desenvolvida para otimizar a experiência do cliente em restaurantes e lanchonetes. Este ecossistema é composto por uma aplicação central e uma infraestrutura de suporte altamente escalável, utilizando Kubernetes, banco de dados gerenciado, e autenticação robusta.
 
+![infra_diagram drawio](https://github.com/user-attachments/assets/65ba327a-e43b-4d10-838f-bbece4c7eddf)
+
+A imagem acima ilustra a iteração entre a infraestrutura e a aplicação. Destaca-se principalmente a autorização dos recursos, que possui duas formas:
+- Rotas privadas, como a de cadastro dos produtos, são autorizadas usando tokens gerados pelo cognito, onde os adminitradores da aplicação estarão cadastrados.
+- Rotas públicas, como a de pedidos, será autorizada com uso de um lambda authorizer, que consulta nossa base de clientes no RDS.
+
+
 ### 📄 Repositórios Principais:
 
 1. **Infraestrutura**:
