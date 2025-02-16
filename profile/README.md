@@ -3,12 +3,38 @@
 ## 📊 Visão Geral
 O projeto **Cloud Burger** é uma solução de *Self Service* desenvolvida para otimizar a experiência do cliente em restaurantes e lanchonetes. Este ecossistema é composto por uma aplicação central e uma infraestrutura de suporte altamente escalável, utilizando Kubernetes, banco de dados gerenciado, e autenticação robusta.
 
-![infra_diagram drawio](https://github.com/user-attachments/assets/65ba327a-e43b-4d10-838f-bbece4c7eddf)
 
-A imagem acima ilustra a iteração entre a infraestrutura e a aplicação. Destaca-se principalmente a autorização dos recursos, que possui duas formas:
-- Rotas privadas, como a de cadastro dos produtos, são autorizadas usando tokens gerados pelo cognito, onde os adminitradores da aplicação estarão cadastrados.
-- Rotas públicas, como a de pedidos, será autorizada com uso de um lambda authorizer, que consulta nossa base de clientes no RDS.
+![infra_cloud_burger-Arquitetura Fase 4 drawio](https://github.com/user-attachments/assets/08cfd3a5-f72a-4e52-af19-5284bcb275ce)
 
+
+A imagem acima ilustra a iteração entre a infraestrutura e a aplicação. 
+
+🔀 Fluxo de Requisições
+
+1️⃣ Usuário/Admin → Envia requisição para o API Gateway
+
+2️⃣ API Gateway → Encaminha a requisição para o Network Load Balancer
+
+3️⃣ Load Balancer → Direciona o tráfego para as aplicações no Cluster EKS (Namespace: self-service)
+
+🛢️ Serviços e Bancos de Dados
+
+**Orders App**
+
+- Gerencia o CRUD de pedidos no Orders Database (PostgreSQL)
+- Consome mensagens da fila de pagamentos (Payments Status Queue - SQS) para validar pagamentos.
+
+**Payments App**
+- Produz mensagens na fila de pagamento (SQS).
+- Gerencia transações financeiras no Payments Database (PostgreSQL).
+
+**Customers App**
+- Executa operações CRUD de clientes no Customers Database (DynamoDB).
+- Consulta CPF na base de clientes para validação via AWS Lambda.
+
+
+🔁 **Integração Assíncrona**
+O Payments App interage com a Payments Status Queue (SQS) para processar pagamentos de forma assíncrona.
 
 ### 📄 Repositórios Principais:
 
@@ -19,7 +45,10 @@ A imagem acima ilustra a iteração entre a infraestrutura e a aplicação. Dest
    - [🔒 Self Service Auth](https://github.com/cloud-burger/self-service-auth)
 
 2. **📚 Aplicação**:
-   - [🍔 Self Service](https://github.com/cloud-burger/self-service)
+   - [🙋🏼 Customers](https://github.com/cloud-burger/customers)
+   - [🧾 Orders](https://github.com/cloud-burger/orders)
+   - [💸 Payments](https://github.com/cloud-burger/payments)
+   - [🍔 Self Service](https://github.com/cloud-burger/self-service)(Deprecated)
 
 ---
 
