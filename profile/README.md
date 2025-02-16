@@ -34,7 +34,7 @@ A imagem acima ilustra a iteração entre a infraestrutura e a aplicação.
 
 
 🔁 **Integração Assíncrona**
-O Payments App interage com a Payments Status Queue (SQS) para processar pagamentos de forma assíncrona.
+- O Payments App interage com a Payments Status Queue (SQS) na fila: process-order-payment-queue para processar pagamentos de forma assíncrona.
 
 ### 📄 Repositórios Principais:
 
