@@ -82,14 +82,23 @@ Responsável pelo sistema de autenticação e autorização da aplicação, impl
 - 🔑 Implementação de autenticação via tokens JWT.
 - 📢 Fluxos de login social.
 
-### 5. [🍔 Self Service](https://github.com/cloud-burger/self-service)
-A aplicação principal do projeto Self Service. Este repositório centraliza a experiência do usuário, com endpoints no padrão RESTFull e integrações aos módulos de infraestrutura.
+### 5. [🙋🏼 Customers](https://github.com/cloud-burger/customers)
+Este repositório centraliza a aplicação para a experiência de cadastro e busca dos clientes.
 
-**Principais Componentes:**
+### 6. [🧾 Orders](https://github.com/cloud-burger/orders)
+Este repositório centraliza a aplicação responsável pelo gerenciamento de pedidos. Conta com testes BDD
+
+### 7. [💸 Payments](https://github.com/cloud-burger/payments)
+Este repositório centraliza a aplicação responsável pelo gerenciamento de pagamentos, desde a criação até a baixa como pago.
+
+### 8. [🍔 Self Service](https://github.com/cloud-burger/self-service)
+A aplicação do projeto Self Service. Este repositório centraliza a experiência do usuário, pedido e compra. Foi depreciado após a quebra da aplicação em multi-repo.
+
+**Componentes Comuns entre as aplicações:**
 - 📲  API nos padrões RESTFull.
 - 📲  Documentação OpenApi com Swagger.
 - 📡 Integrações com APIs de autenticação e banco de dados.
-- 💼 Lógica de negócios e gestão de pedidos.
+- 🧪 Cobertura de testes com Sonar Qube.
 
 ---
 
@@ -103,7 +112,9 @@ git clone https://github.com/cloud-burger/self-service-auth-infra
 git clone https://github.com/cloud-burger/self-service-k8s
 git clone https://github.com/cloud-burger/self-service-database
 git clone https://github.com/cloud-burger/self-service-auth
-git clone https://github.com/cloud-burger/self-service
+git clone https://github.com/cloud-burger/customers
+git clone https://github.com/cloud-burger/orders
+git clone https://github.com/cloud-burger/payments
 ```
 
 ### 2. 💡 Configure o Ambiente
