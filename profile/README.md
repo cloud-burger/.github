@@ -1,26 +1,25 @@
 # 🍔 Cloud Burger - Self Service
 
 ## 📊 Visão Geral
-O projeto **Cloud Burger** é uma solução de *Self Service* desenvolvida para otimizar a experiência do cliente em restaurantes e lanchonetes. Este ecossistema é composto por uma aplicação central e uma infraestrutura de suporte altamente escalável, utilizando Kubernetes, banco de dados gerenciado, e autenticação robusta.
-
+O projeto **Cloud Burger** é uma solução de *Self Service* desenvolvida para otimizar a experiência do cliente em restaurantes e lanchonetes. Este ecossistema é composto por uma aplicação central e uma infraestrutura de suporte altamente escalável, utilizando Kubernetes, banco de dados gerenciado, e autenticação robusta. A imagem abaixo ilustra a iteração entre a infraestrutura e a aplicação.
 
 ![infra_cloud_burger-Arquitetura Fase 4 drawio](https://github.com/user-attachments/assets/08cfd3a5-f72a-4e52-af19-5284bcb275ce)
 
 
-A imagem acima ilustra a iteração entre a infraestrutura e a aplicação. 
-
 🔀 Fluxo de Requisições
 
-1️⃣ Usuário/Admin → Envia requisição para o API Gateway
+- **Autorização**
 
-2️⃣ API Gateway → Encaminha a requisição para o Network Load Balancer
+![infra_cloud_burger-Fluxo de autorização drawio](https://github.com/user-attachments/assets/b6bb5d71-a690-427a-bb74-fe8587952b79)
 
-3️⃣ Load Balancer → Direciona o tráfego para as aplicações no Cluster EKS (Namespace: self-service)
+- **Pedido**
 
-🛢️ Serviços e Bancos de Dados
+![infra_cloud_burger-Fluxo de pedido drawio](https://github.com/user-attachments/assets/8d5cae6e-f593-4472-9d8d-b41543f04c2a)
+
+---
+🛢️ Serviços
 
 **Orders App**
-
 - Gerencia o CRUD de pedidos no Orders Database (PostgreSQL)
 - Consome mensagens da fila de pagamentos (Payments Status Queue - SQS) para validar pagamentos.
 
